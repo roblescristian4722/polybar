@@ -69,7 +69,7 @@ font-11 = Sauce Code Pro Nerd Font Complete Mono:scale=14;0
 font-12 = Fantasque-Sans-Mono-Nerd-Font:scale=14;0
 
 modules-left = bspwm i3
-modules-center = date
+modules-center = date updates-arch
 modules-right = playerctl playerctl-prev playerctl-play-pause playerctl-next pulseaudio xbacklight xkeyboard memory cpu wlan eth battery temperature powermenu
 
 tray-position = right
@@ -188,6 +188,17 @@ ws-icon-default = ︁
 ; Separator in between workspaces
 ; label-separator = |
 
+[module/updates-arch]
+type = custom/script
+exec = "~/.config/polybar/scripts/arch/arch_updates.sh -s"
+tail = true
+format = <label>
+format-prefix = " "
+click-right = "~/.config/polybar/scripts/arch/arch_updates.sh -u&"
+click-left = "~/.config/polybar/scripts/arch/arch_updates.sh -q&"
+click-middle = "~/.config/polybar/scripts/arch/arch_updates.sh -c&"
+scroll-up = "~/.config/polybar/scripts/arch/arch_updates.sh -n&"
+
 [module/playerctl]
 type = custom/script
 tail = true
@@ -203,7 +214,7 @@ click-left = playerctl previous
 
 [module/playerctl-play-pause]
 type = custom/script
-exec = echo ""
+exec = echo "懶"
 format = <label>
 initial = 1
 click-left = playerctl play-pause

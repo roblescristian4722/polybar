@@ -70,10 +70,10 @@ font-12 = Fantasque-Sans-Mono-Nerd-Font:scale=14;0
 
 modules-left = bspwm i3
 modules-center = date
-modules-right = playerctl playerctl-prev playerctl-play-pause playerctl-next pulseaudio xbacklight filesystem xkeyboard memory cpu wlan eth battery temperature powermenu
+modules-right = playerctl playerctl-prev playerctl-play-pause playerctl-next pulseaudio xbacklight xkeyboard memory cpu wlan eth battery temperature powermenu
 
 tray-position = right
-tray-padding = 2
+tray-padding = 1
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -115,6 +115,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
+mount-1 = /mnt/HDD
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
@@ -156,25 +157,33 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %index%: %icon%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %index%: %icon%
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %index%: %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %index%: %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
+
+enable-scroll = false
+
+ws-icon-0 = 1: Web;🌐︁
+ws-icon-1 = 2: Dev;︁
+ws-icon-2 = 3: Music/Msg; /🎵︁
+ws-icon-3 = 4: Games;︁
+ws-icon-default = ︁
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -367,24 +376,30 @@ format-charging-underline = #ffb52a
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
@@ -402,9 +417,9 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = ︁
+ramp-1 = ︁
+ramp-2 = ︁
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
@@ -414,9 +429,9 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = ⏻︁
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close = cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
@@ -429,10 +444,10 @@ menu-0-1-exec = menu-open-2
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+menu-1-1-exec = reboot
 
 menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
+menu-2-0-exec = shutdown -h now
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 

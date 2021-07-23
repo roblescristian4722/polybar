@@ -52,15 +52,13 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
-; font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-; font-2 = siji:pixelsize=10;1
+font-1 = FontAwesome:scale=14;0
+font-2 = Iosevka-Nerd-Font:scale=14;0
 
-font-1 = FontAwesome:scale=10;0
-font-2 = material\-wifi:scale=10;0
-font-3 = Koruri,Koruri Regular:size=7;0
-font-4 = NotoColorEmoji:scale=10;0
-font-5 = Hurmit-Nerd-Font-Mono:scale=14;0
-font-6 = Iosevka-Nerd-Font:scale=14;0
+font-3 = Koruri,Koruri Regular:scale=14;0
+font-4 = NotoColorEmoji:scale=14;0
+font-5 = material\-wifi:scale=14;0
+font-6 = Hurmit-Nerd-Font-Mono:scale=14;0
 font-7 = Fantasque-Sans-Mono-Nerd-Font:scale=14;0
 font-8 = Inconsolata Regular Nerd Font Complete Mono:scale=14;0
 font-9 = DejaVu-Sans-Mono-Oblique-Nerd-Font-Complete-Mono:scale=14;0
@@ -68,9 +66,9 @@ font-10 = Symbols-2048-em Nerd Font Complete:scale=14;0
 font-11 = Sauce Code Pro Nerd Font Complete Mono:scale=14;0
 font-12 = Fantasque-Sans-Mono-Nerd-Font:scale=14;0
 
-modules-left = bspwm i3
+modules-left = i3 playerctl playerctl-prev playerctl-play-pause playerctl-next
 modules-center = date updates-arch
-modules-right = playerctl playerctl-prev playerctl-play-pause playerctl-next pulseaudio xbacklight xkeyboard memory cpu wlan eth battery temperature powermenu
+modules-right = pulseaudio xbacklight xkeyboard memory cpu wlan eth battery temperature powermenu
 
 tray-position = right
 tray-padding = 1
@@ -265,7 +263,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = net1
+interface = wlo1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -285,13 +283,13 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp4s0
+interface = eno1
 interval = 3.0
 
 format-connected-underline = #55aa55
 format-connected-prefix = "︁ "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected = %ifname%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -384,7 +382,7 @@ full-at = 98
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
 
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
@@ -405,14 +403,6 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature

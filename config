@@ -51,20 +51,11 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = FontAwesome:scale=14;0
-font-2 = Iosevka-Nerd-Font:scale=14;0
-
-font-3 = Koruri,Koruri Regular:scale=14;0
-font-4 = NotoColorEmoji:scale=14;0
-font-5 = material\-wifi:scale=14;0
-font-6 = Hurmit-Nerd-Font-Mono:scale=14;0
-font-7 = Fantasque-Sans-Mono-Nerd-Font:scale=14;0
-font-8 = Inconsolata Regular Nerd Font Complete Mono:scale=14;0
-font-9 = DejaVu-Sans-Mono-Oblique-Nerd-Font-Complete-Mono:scale=14;0
-font-10 = Symbols-2048-em Nerd Font Complete:scale=14;0
-font-11 = Sauce Code Pro Nerd Font Complete Mono:scale=14;0
-font-12 = Fantasque-Sans-Mono-Nerd-Font:scale=14;0
+font-0 = fixed:pixelsize=9;1
+font-1 = FontAwesome:scale=10;0
+font-2 = Iosevka-Nerd-Font:scale=10;0
+font-3 = NotoColorEmoji:scale=10;0
+font-4 = material\-wifi:scale=10;0
 
 modules-left = i3 playerctl playerctl-prev playerctl-play-pause playerctl-next
 modules-center = date updates-arch

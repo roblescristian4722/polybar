@@ -51,7 +51,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=9;1
+font-0 = fixed:pixelsize=10;1
 font-1 = FontAwesome:scale=10;0
 font-2 = Iosevka-Nerd-Font:scale=10;0
 font-3 = NotoColorEmoji:scale=10;0
@@ -59,7 +59,7 @@ font-4 = material\-wifi:scale=10;0
 
 modules-left = i3 playerctl playerctl-prev playerctl-play-pause playerctl-next
 modules-center = date updates-arch
-modules-right = pulseaudio xbacklight xkeyboard memory cpu wlan eth battery temperature powermenu
+modules-right = filesystem pulseaudio xbacklight xkeyboard memory cpu wlan eth battery temperature powermenu
 
 tray-position = right
 tray-padding = 1
@@ -105,6 +105,7 @@ interval = 25
 
 mount-0 = /
 mount-1 = /mnt/HDD
+mount-2 = /mnt/HDDM
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
@@ -274,13 +275,13 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = eno1
+interface = enp4s0
 interval = 3.0
 
 format-connected-underline = #55aa55
 format-connected-prefix = "︁ "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %ifname%
+label-connected = %ifname%:  %upspeed%  %downspeed% 
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>

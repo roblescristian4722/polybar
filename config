@@ -24,11 +24,11 @@ background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #dfdfdf
 primary = #ffb52a
-secondary = #e60053
+secondary = #444
 alert = #bd2c40
 
-[bar/bar1]
-;monitor = ${env:MONITOR:HDMI-1}
+[bar/base]
+monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 25
 ;offset-x = 1%
@@ -59,7 +59,7 @@ font-4 = material\-wifi:scale=10;0
 
 modules-left = i3 playerctl playerctl-prev playerctl-play-pause playerctl-next
 modules-center = date updates-arch
-modules-right = filesystem pulseaudio xbacklight xkeyboard memory cpu wlan eth battery temperature powermenu
+modules-right = pulseaudio xbacklight xkeyboard memory cpu wlan eth battery temperature powermenu
 
 tray-position = right
 tray-padding = 1
@@ -78,6 +78,11 @@ wm-restack = i3
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[bar/secondary]
+monitor=${env:MONITOR:DVI-D-0}
+inherit = bar/base
+modules-left = i3
 
 [module/xwindow]
 type = internal/xwindow
@@ -159,7 +164,7 @@ label-unfocused-padding = 2
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%: %icon%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+label-visible-underline = ${colors.secondary}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -169,11 +174,15 @@ label-urgent-padding = 2
 
 enable-scroll = false
 
-ws-icon-0 = 1: Web;🌐︁
-ws-icon-1 = 2: Dev;︁
-ws-icon-2 = 3: Music/Msg; /🎵︁
-ws-icon-3 = 4: Games;︁
+ws-icon-0 = 1: Music/Msg; /🎵︁
+ws-icon-1 = 2: Dev;︁ / 🌐︁
+ws-icon-2 = 4: Web;🌐︁
+ws-icon-3 = 5: Dev;︁
+ws-icon-4 = 6: Games;︁
 ws-icon-default = ︁
+
+pin-workspaces = true
+
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -423,22 +432,16 @@ expand-right = true
 format-spacing = 1
 
 label-open = ⏻︁
-label-open-foreground = ${colors.secondary}
+label-open-foreground = #f50a4d
 label-close = cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
+menu-0-0-exec = reboot
 menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = reboot
-menu-1-0-exec = reboot
-
-menu-2-0 = power off
-menu-2-0-exec = shutdown -h now
+menu-0-1-exec = shutdown -h now
 
 [settings]
 screenchange-reload = true
